@@ -6,3 +6,27 @@
 
 docker-compose.override.yml
 
+# Ember files 
+# compiled output
+/books/dist/
+/boks/tmp/
+
+# dependencies
+/books/bower_components/
+/books/node_modules/
+
+# misc
+/books/.env*
+/books/.pnp*
+/books/.sass-cache
+/books/connect.lock
+/books/coverage/
+/books/libpeerconnection.log
+/books/npm-debug.log*
+/books/testem.log
+/books/yarn-error.log
+
+# ember-try
+/books/.node_modules.ember-try/
+/books/bower.json.ember-try
+/books/package.json.ember-try
