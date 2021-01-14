@@ -1,0 +1,28 @@
+<h3>Authors list</h3>
+
+<ul>
+	{{#each @model as |author|}}
+	<li>{{author.secondName}} <small>{{author.firstName}}</small></li>
+	<ul>
+	{{#each author.books as |book|}}
+	<li>{{book.title}}</li>
+	{{/each}}
+	</ul>
+	<button {{on "click" (fn this.removeAuthor author)}}>Remove</button>
+	{{/each}}
+</ul>
+
+
+<form {{on "submit" this.createAuthor}}>
+	<dl>
+		<dt>Author First Name</dt>
+		<dd>
+			<Input @value={{this.newFirstName}} @placeholder="Gianna" />
+		</dd>
+		<dt>Author Second Name</dt>
+		<dd>
+			<Input @value={{this.newSecondName}} @placeholder="Capurso" />
+		</dd>
+	</dl>
+	<button type="submit">Create</button>
+</form>
