@@ -1,0 +1,11 @@
+<h3>Books list</h3>
+
+<ul>
+	{{#each @books as |book|}}
+	<div>
+		<li>
+			{{book-cover book=book blurBackground=(route-action "blurBackground")}}
+		</li>
+	</div>
+	{{/each}}
+</ul>

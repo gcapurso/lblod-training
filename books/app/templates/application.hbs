@@ -1,6 +1,8 @@
 {{page-title "Book Store with Octane"}}
 <h2>
-    Our awesome Bookstore
+    <LinkTo @route="books">Our awesome Bookstore</LinkTo>
 </h2>
 
-{{outlet}}
+<div class="{{if blur 'blur-background'}}">
+  {{outlet}}
+</div>

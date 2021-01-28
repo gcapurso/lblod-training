@@ -1,32 +1,5 @@
-<h3>Books list</h3>
+<h2>Welcome Customer in the Book Shop</h2>
+<BooksShop @books={{@model.books}} />
 
-<ul>
-	{{#each @model.books as |book|}}
-	<li><small>{{book.isbn}}</small>: {{book.title}} by {{book.author.secondName}} {{book.author.firstName}}</li>
-	<button {{on "click" (fn this.removeBook book)}}>Remove</button>
-	{{/each}}
-</ul>
-
-
-<form {{on "submit" this.createBook}}>
-	<dl>
-		<dt>Book title</dt>
-		<dd>
-			<Input @value={{this.newTitle}} @placeholder="Thinking Fast and Slow" />
-		</dd>
-		<dt>ISBN</dt>
-		<dd>
-			<Input @value={{this.newIsbn}} @placeholder="978-0374533557" />
-		</dd>
-		<dt>Author</dt>
-		<dd>
-			<select {{on "change" this.selectOption}}>
-				<option value=null></option>
-				{{#each @model.authors as |author|}}
-				<option value={{author.id}}>{{author.secondName}} {{author.firstName}}</option>
-				{{/each}}
-			</select>
-		</dd>
-	</dl>
-	<button type="submit">Create</button>
-</form>
+<h2>Welcome Owner in the Book Shop</h2>
+<BooksEditing @model={{@model}} />

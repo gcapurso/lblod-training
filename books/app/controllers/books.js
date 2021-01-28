@@ -7,6 +7,7 @@ export default class BooksController extends Controller {
   @tracked newTitle = '';
   @tracked newIsbn = '';
   @tracked newAuthor = '';
+  @tracked newPrice = '';
 
   @service store;
 
@@ -17,6 +18,7 @@ export default class BooksController extends Controller {
     const book = this.store.createRecord('book', {
       title: this.newTitle,
       isbn: this.newIsbn,
+      price: this.newPrice,
       author: await this.store.findRecord('author', this.newAuthor)
     });
 
@@ -25,6 +27,7 @@ export default class BooksController extends Controller {
     // clear the input field
     this.newTitle = '';
     this.newIsbn = '';
+    this.newPrice = '';
   }
 
   @action

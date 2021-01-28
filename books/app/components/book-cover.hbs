@@ -1,0 +1,27 @@
+ <div {{action "open"}}>
+    <strong>{{@book.title}}</strong><br><br>
+    <em>by</em>
+    {{@book.author.secondName}} {{@book.author.firstName}}<br><br>
+    <small> ISBN: {{@book.isbn}}</small><br><br>
+    $ {{@book.price}}
+</div>
+
+{{#if isShowingModal}}
+  {{#modal-dialog onClose=(action 'close') clickOutsideToClose=true}}
+
+    <div class="modal">
+      <h3>Purchase confirmation</h3>
+      You want to buy <strong>{{book.title}}</strong> by {{@book.author.secondName}} {{@book.author.firstName}}.
+
+      <p>
+        <button {{action "close"}}>Purchase for ${{book.price}}!</button>
+      </p>
+
+      <p>
+        <em>Thank you! We will e-mail you your e-book</em>
+      </p>
+
+    </div>
+
+  {{/modal-dialog}}
+{{/if}}

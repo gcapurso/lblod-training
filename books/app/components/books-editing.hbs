@@ -1,0 +1,41 @@
+<h3>Books editing</h3>
+
+<form {{on "submit" this.createBook}}>
+    <dl>
+        <dt>Book title</dt>
+        <dd>
+            <Input @value={{this.newTitle}} @placeholder="Thinking Fast and Slow" />
+        </dd>
+        <dt>ISBN</dt>
+        <dd>
+            <Input @value={{this.newIsbn}} @placeholder="978-0374533557" />
+        </dd>
+        <dt>Author</dt>
+        <dd>
+            <select {{on "change" this.selectOption}}>
+                <option value=null></option>
+                {{#each @model.authors as |author|}}
+                <option value={{author.id}}>{{author.secondName}} {{author.firstName}}</option>
+                {{/each}}
+            </select>
+        </dd>
+        <dt>Price $</dt>
+        <dd>
+            <Input @value={{this.newPrice}} @placeholder="9.99" />
+        </dd>
+    </dl>
+    <button type="submit">Create</button>
+</form>
+
+<br><br>
+
+<ul>
+    {{#each @model.books as |book|}}
+    <div>
+        <li>
+            <BookCover @book={{book}} />
+            <button {{on "click" (fn this.removeBook book)}}>Remove</button>
+        </li>
+    </div>
+    {{/each}}
+</ul>
