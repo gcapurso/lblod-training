@@ -4,12 +4,19 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class BooksController extends Controller {
+  queryParams = ['isAdmin']
+  @tracked isAdmin = null;
+
   @tracked newTitle = '';
   @tracked newIsbn = '';
   @tracked newAuthor = '';
   @tracked newPrice = '';
 
   @service store;
+
+  get isLoggedAsAdmin(){
+    return this.isAdmin;
+  }
 
   @action
   async createBook(event) {

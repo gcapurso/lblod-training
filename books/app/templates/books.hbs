@@ -1,5 +1,4 @@
-{{#if isAdmin}}
-    <h2>Welcome Admin in the BookStore</h2>
+{{#if this.isLoggedAsAdmin}}
     <BooksEditing 
         @model={{@model}}
         @onSelect={{selectOption}}
@@ -10,9 +9,5 @@
         @price={{newPrice}}
     />
 {{else}}
-    <h2>Welcome Guest in the BookStore</h2>
     <BooksShop @books={{@model.books}} />
 {{/if}}
-
-
-
