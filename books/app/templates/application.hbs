@@ -3,6 +3,12 @@
     <LinkTo @route="books">Our awesome Bookstore</LinkTo>
 </h2>
 
+<input type="radio" id="admin" name="isAdmin" checked=isAdmin onclick={{action (mut isAdmin) true}}>
+<label for="admin">Admin</label>
+<br>
+<input type="radio" id="guest" name="isAdmin" checked={{not isAdmin}} onclick={{action (mut isAdmin) false}} />
+<label for="guest">Guest</label>
+
 <div class="{{if blur 'blur-background'}}">
   {{outlet}}
 </div>

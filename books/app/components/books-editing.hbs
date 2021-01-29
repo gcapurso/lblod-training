@@ -1,18 +1,18 @@
 <h3>Books editing</h3>
 
-<form {{on "submit" this.createBook}}>
+<form {{on "submit" @onCreate}}>
     <dl>
         <dt>Book title</dt>
         <dd>
-            <Input @value={{this.newTitle}} @placeholder="Thinking Fast and Slow" />
+            <Input @value={{@title}} @placeholder="Thinking Fast and Slow" />
         </dd>
         <dt>ISBN</dt>
         <dd>
-            <Input @value={{this.newIsbn}} @placeholder="978-0374533557" />
+            <Input @value={{@isbn}} @placeholder="978-0374533557" />
         </dd>
         <dt>Author</dt>
         <dd>
-            <select {{on "change" this.selectOption}}>
+            <select {{on "change" @onSelect}}>
                 <option value=null></option>
                 {{#each @model.authors as |author|}}
                 <option value={{author.id}}>{{author.secondName}} {{author.firstName}}</option>
@@ -21,7 +21,7 @@
         </dd>
         <dt>Price $</dt>
         <dd>
-            <Input @value={{this.newPrice}} @placeholder="9.99" />
+            <Input @value={{@price}} @placeholder="9.99" />
         </dd>
     </dl>
     <button type="submit">Create</button>
@@ -34,7 +34,7 @@
     <div>
         <li>
             <BookCover @book={{book}} />
-            <button {{on "click" (fn this.removeBook book)}}>Remove</button>
+            <button {{on "click" (fn @onRemove book)}}>Remove</button>
         </li>
     </div>
     {{/each}}

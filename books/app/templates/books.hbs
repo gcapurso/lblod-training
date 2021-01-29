@@ -1,5 +1,18 @@
-<h2>Welcome Customer in the Book Shop</h2>
-<BooksShop @books={{@model.books}} />
+{{#if isAdmin}}
+    <h2>Welcome Admin in the BookStore</h2>
+    <BooksEditing 
+        @model={{@model}}
+        @onSelect={{selectOption}}
+        @onCreate={{createBook}}
+        @onRemove={{removeBook}} 
+        @title={{newTitle}}
+        @isbn={{newIsbn}}
+        @price={{newPrice}}
+    />
+{{else}}
+    <h2>Welcome Guest in the BookStore</h2>
+    <BooksShop @books={{@model.books}} />
+{{/if}}
 
-<h2>Welcome Owner in the Book Shop</h2>
-<BooksEditing @model={{@model}} />
+
+

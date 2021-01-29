@@ -14,7 +14,9 @@ export default class BooksController extends Controller {
   @action
   async createBook(event) {
     event.preventDefault();
-    // create the new book
+
+    console.log("Creating...");
+
     const book = this.store.createRecord('book', {
       title: this.newTitle,
       isbn: this.newIsbn,
@@ -34,13 +36,15 @@ export default class BooksController extends Controller {
   selectOption(event) {
     event.preventDefault();
 
+    console.log("Selecting...");
     this.set('newAuthor', event.target.value);
-    console.log(this.newAuthor);
   }
 
   @action
   removeBook(book, event) {
     event.preventDefault();
+
+    console.log("Removing...");
     book.destroyRecord();
   }
 }
